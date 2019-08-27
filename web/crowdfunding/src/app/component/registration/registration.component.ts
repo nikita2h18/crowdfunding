@@ -16,7 +16,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private registerService: RegistrationService,
     private router: Router
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
@@ -32,13 +33,21 @@ export class RegistrationComponent implements OnInit {
       );
   };
 
+  login = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
-  getErrorMessage() {
-    return this.password.hasError('required') ? 'You must enter a password' :
-           this.password.hasError('password') ? 'Not a valid password' :
+  getLoginErrorMessage() {
+    return this.login.hasError('required')
+           ? 'You must enter a login'
+           :
            '';
+  }
 
+  getPasswordErrorMessage() {
+    return this.password.hasError('required')
+           ? 'You must enter a password'
+           :
+           'Not a valid password';
   }
 }
 
