@@ -5,7 +5,7 @@ import com.gmail.shabannikitka.crowdfunding.core.entity.enums.Role;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user")
+@Table(name = "user", schema = "public")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
