@@ -1,0 +1,30 @@
+<div class="root">
+  <div class="registration-stuff">
+    <mat-card-title>
+      Registration
+    </mat-card-title>
+    <form class="form" (ngSubmit)="register()">
+      <mat-form-field>
+        <label>
+          <input matInput placeholder="Login" [(ngModel)]="registerUser.login" name="login">
+        </label>
+      </mat-form-field>
+      <mat-form-field>
+        <label>
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            [(ngModel)]="registerUser.password"
+            [formControl]="password"
+            name="password">
+        </label>
+        <mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary"
+              [disabled]="registerUser.login == null || password.invalid">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
