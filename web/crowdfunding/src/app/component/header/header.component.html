@@ -3,7 +3,8 @@
     Take my money
   </p>
   <div class="right">
-    <button mat-button color="white">Sign up</button>
-    <button mat-button color="white">Sign in</button>
+    <button mat-button color="white" *ngIf="localStorage.getItem('token')" (click)="navigateRegister()">Sign up</button>
+    <button mat-button color="white" *ngIf="localStorage.getItem('token')" (click)="navigateAuth()">Sign in</button>
+    <button mat-button color="white" *ngIf="!localStorage.getItem('token')" (click)="logOut()">Log out</button>
   </div>
 </mat-toolbar>

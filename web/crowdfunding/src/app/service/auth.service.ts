@@ -13,6 +13,10 @@ export class AuthService {
     private http: HttpClient,
   ) { }
 
-  public auth = (authUser: AuthUser): Observable<void> =>
-    this.http.post<void>(API_URL + 'auth', authUser);
-}
+  public auth = (authUser: AuthUser): Observable<string> => (
+    this.http.post<string>(
+      API_URL + 'auth',
+      authUser,
+      { responseType: 'text' as 'json' },
+    )
+  );}

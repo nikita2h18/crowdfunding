@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterUser } from "../../dto/RegisterUser";
 import { AuthUser } from "../../dto/AuthUser";
 import { Router } from "@angular/router";
-import { RegistrationService } from "../../service/registration.service";
 import { AuthService } from "../../service/auth.service";
+import { LOCALSTORAGE_TOKEN_NAME } from "../../../globals";
+import { TokenProviderService } from "../../service/token-provider.service";
 
 @Component({
   selector: 'app-auth',
@@ -15,19 +15,19 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
-) { }
+    private router: Router,
+    private tokenProviderService: TokenProviderService
+  ) { }
 
   ngOnInit() {
   }
 
-  public auth = (): void => {
-    this.authService
-      .auth(this.authUser)
-      .subscribe(
-        (): void => {
-          this.router.navigateByUrl('/auth');
-        },
-      );
+  auth() {
+    this.authService.auth(this.authUser).subscribe(token => {
+      this.tokenProviderService.setToken(token);
+      localStorage.setItem(LOCALSTORAGE_TOKEN_NAME, token);
+
+      this.router.navigate(['/main'], {replaceUrl: true});
+    });
   }
 }
