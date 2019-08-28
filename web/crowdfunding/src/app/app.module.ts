@@ -9,15 +9,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from "@angular/common/http";
-import { MatCardModule, MatInputModule } from "@angular/material";
+import { MatCardModule, MatInputModule, MatToolbarModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthComponent } from './component/auth/auth.component';
+import { HeaderComponent } from './component/header/header.component';
+import { CreateCampaignComponent } from './component/create-campaign/create-campaign.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     AuthComponent,
+    HeaderComponent,
+    CreateCampaignComponent,
   ],
   imports: [
     HttpClientModule,
@@ -30,6 +34,7 @@ import { AuthComponent } from './component/auth/auth.component';
     MatCardModule,
     FormsModule,
     ReactiveFormsModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

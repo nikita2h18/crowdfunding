@@ -1,0 +1,22 @@
+mat-toolbar {
+  display: flex;
+  position: static;
+}
+
+.title {
+  font-family: Roboto, sans-serif;
+  margin-right: 10px;
+  flex: 1;
+}
+
+.right {
+  display: flex;
+
+  button {
+    width: 100px;
+    height: 50px;
+    font-size: medium;
+    font-family: Roboto, sans-serif;
+  }
+}
+

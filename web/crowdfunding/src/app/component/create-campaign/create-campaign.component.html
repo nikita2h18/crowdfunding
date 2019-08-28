@@ -1,0 +1,23 @@
+<div class="root">
+  <h2>Basics</h2>
+  <p class="basics">
+    Make a good first impression: introduce your campaign objectives and entice people to learn more.
+    This basic information will represent your campaign on your campaign page, on your campaign card,
+    and in searches.
+  </p>
+  <mat-form-field class="campaign-title">
+    <input matInput placeholder="Campaign Title *" value="What is the title of your campaign?">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Campaign Tagline *"></textarea>
+  </mat-form-field>
+  <div class="card-image">
+    <label>Campaign Card Image *</label>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <input class="entreImage-file"
+           name="file"
+           type="file"
+           accept="image/jpg, image/jpeg, image/png"
+           data-cloudinary-field="image_id">
+  </div>
+</div>
