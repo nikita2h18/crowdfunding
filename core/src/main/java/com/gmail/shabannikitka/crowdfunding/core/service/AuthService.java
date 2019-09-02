@@ -1,9 +1,11 @@
 package com.gmail.shabannikitka.crowdfunding.core.service;
 
 import com.gmail.shabannikitka.crowdfunding.core.dto.AuthUserDto;
+import com.gmail.shabannikitka.crowdfunding.core.entity.Token;
 import com.gmail.shabannikitka.crowdfunding.core.entity.User;
 import com.gmail.shabannikitka.crowdfunding.core.exception.AuthenticationException;
 import com.gmail.shabannikitka.crowdfunding.core.exception.NoSuchEntityException;
+import com.gmail.shabannikitka.crowdfunding.core.exception.NoSuchTokenException;
 import com.gmail.shabannikitka.crowdfunding.core.repository.UserRepository;
 import com.gmail.shabannikitka.crowdfunding.core.sequrity.Hasher;
 import org.springframework.stereotype.Service;
@@ -27,5 +29,9 @@ public class AuthService {
             throw new AuthenticationException("Invalid client credentials");
 
         return  tokenService.getToken(user);
+    }
+
+    public void logOut(String token) throws NoSuchTokenException {
+        tokenService.remove(token);
     }
 }

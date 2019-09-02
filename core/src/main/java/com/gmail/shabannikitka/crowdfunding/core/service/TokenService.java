@@ -3,6 +3,7 @@ package com.gmail.shabannikitka.crowdfunding.core.service;
 import com.gmail.shabannikitka.crowdfunding.core.entity.Token;
 import com.gmail.shabannikitka.crowdfunding.core.entity.User;
 import com.gmail.shabannikitka.crowdfunding.core.exception.NoSuchEntityException;
+import com.gmail.shabannikitka.crowdfunding.core.exception.NoSuchTokenException;
 import com.gmail.shabannikitka.crowdfunding.core.repository.TokenRepository;
 import com.gmail.shabannikitka.crowdfunding.core.sequrity.TokenGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,10 @@ public class TokenService {
         return tokenRepository.findByToken(token)
                 .orElseThrow(() -> new NoSuchEntityException("No such user"))
                 .getUser();
+    }
+
+    public void remove(String token) throws NoSuchTokenException {
+        tokenRepository.delete(tokenRepository.findByToken(token)
+                .orElseThrow(() -> new NoSuchTokenException()));
     }
 }

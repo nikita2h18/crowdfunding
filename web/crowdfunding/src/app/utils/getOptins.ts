@@ -1,6 +1,6 @@
 import { LOCALSTORAGE_TOKEN_NAME } from "../../globals";
 
-export const getOptions = () => {
+const getOptions = () => {
   const token: string = localStorage.getItem(LOCALSTORAGE_TOKEN_NAME);
 
   return {
@@ -9,3 +9,5 @@ export const getOptions = () => {
     },
   }
 };
+
+export default getOptions();

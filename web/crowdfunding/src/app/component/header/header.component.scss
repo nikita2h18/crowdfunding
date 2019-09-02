@@ -6,11 +6,22 @@ mat-toolbar {
 .title {
   font-family: Roboto, sans-serif;
   margin-right: 10px;
-  flex: 1;
+}
+
+.left {
+  display: flex;
+
+  button {
+    width: 150px;
+    height: 50px;
+    font-size: medium;
+    font-family: Roboto, sans-serif;
+  }
 }
 
 .right {
   display: flex;
+  margin-left: auto;
 
   button {
     width: 100px;
