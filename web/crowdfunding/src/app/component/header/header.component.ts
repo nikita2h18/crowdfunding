@@ -8,14 +8,15 @@ import { getToken } from "codelyzer/angular/styles/cssLexer";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  localStorage = localStorage;
+  token: string;
 
   constructor(
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(
+    token = localStorage.getItem('token')
+  ) {
   }
 
   navigateAuth() {
@@ -27,7 +28,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut() {
-    localStorage.clear();
     this.router.navigateByUrl("/main")
   }
 }

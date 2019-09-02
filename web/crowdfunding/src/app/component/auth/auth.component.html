@@ -6,15 +6,34 @@
     <form class="form" (ngSubmit)="auth()">
       <mat-form-field>
         <label>
-          <input matInput placeholder="Login" [(ngModel)]="authUser.login" name="login">
+          <input
+            matInput
+            placeholder="Login"
+            [(ngModel)]="authUser.login"
+            [formControl]="login"
+            name="login">
         </label>
+        <mat-error *ngIf="login.invalid">{{getLoginErrorMessage()}}</mat-error>
       </mat-form-field>
       <mat-form-field>
         <label>
-          <input matInput placeholder="Password" type="password" [(ngModel)]="authUser.password" name="password">
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            [(ngModel)]="authUser.password"
+            [formControl]="password"
+            name="password">
         </label>
+        <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
-      <button type="submit" mat-raised-button color="primary">Submit</button>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="login.invalid || password.invalid">
+        Submit
+      </button>
     </form>
   </div>
 </div>

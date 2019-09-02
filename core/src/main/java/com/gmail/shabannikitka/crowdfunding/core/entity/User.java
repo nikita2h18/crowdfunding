@@ -19,6 +19,7 @@ public class User {
     private String password;
 
     @Column(name = "role")
+    @Enumerated(EnumType.ORDINAL)
     private Role role;
 
     public User() {

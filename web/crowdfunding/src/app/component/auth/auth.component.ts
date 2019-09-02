@@ -4,6 +4,7 @@ import { Router } from "@angular/router";
 import { AuthService } from "../../service/auth.service";
 import { LOCALSTORAGE_TOKEN_NAME } from "../../../globals";
 import { TokenProviderService } from "../../service/token-provider.service";
+import { FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-auth',
@@ -12,6 +13,9 @@ import { TokenProviderService } from "../../service/token-provider.service";
 })
 export class AuthComponent implements OnInit {
   private authUser: AuthUser = new AuthUser();
+
+  login = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required, Validators.minLength(8)]);
 
   constructor(
     private authService: AuthService,
@@ -29,5 +33,19 @@ export class AuthComponent implements OnInit {
 
       this.router.navigate(['/main'], {replaceUrl: true});
     });
+  }
+
+  getLoginErrorMessage() {
+    return this.login.hasError('required')
+           ? 'You must enter a login'
+           :
+           '';
+  }
+
+  getPasswordErrorMessage() {
+    return this.password.hasError('required')
+           ? 'You must enter a password'
+           :
+           'Not a valid password';
   }
 }

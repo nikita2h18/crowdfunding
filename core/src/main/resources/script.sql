@@ -61,11 +61,11 @@ create table company
   date_to     date             not null
 );
 
-alter table company
+alter table campaign
   owner to postgres;
 
 create unique index company_name_uindex
-  on company (name);
+  on campaign (name);
 
 create table token
 (
