@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(
     token = localStorage.getItem('token')
   ) {
+    this.token = token;
+    console.log(token);
   }
 
   navigateAuth() {
