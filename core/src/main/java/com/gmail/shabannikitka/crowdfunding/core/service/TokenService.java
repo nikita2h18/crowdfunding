@@ -26,13 +26,13 @@ public class TokenService {
     }
 
     public User validate(String token) throws NoSuchEntityException {
-        return tokenRepository.findByToken(token)
-                .orElseThrow(() -> new NoSuchEntityException("No such user"))
-                .getUser();
+            return tokenRepository.findByToken(token)
+                    .orElseThrow(() -> new NoSuchEntityException("No such user"))
+                    .getUser();
     }
 
     public void remove(String token) throws NoSuchTokenException {
         tokenRepository.delete(tokenRepository.findByToken(token)
-                .orElseThrow(() -> new NoSuchTokenException()));
+                .orElseThrow(NoSuchTokenException::new));
     }
 }

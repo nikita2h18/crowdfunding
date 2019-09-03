@@ -29,7 +29,6 @@ export class AuthComponent implements OnInit {
   auth() {
     this.authService.auth(this.authUser).subscribe(token => {
       this.tokenProviderService.setToken(token);
-      localStorage.setItem(LOCALSTORAGE_TOKEN_NAME, token);
 
       this.router.navigate(['/main'], {replaceUrl: true});
     });

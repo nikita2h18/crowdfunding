@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { getToken } from "codelyzer/angular/styles/cssLexer";
 import { LOCALSTORAGE_TOKEN_NAME } from "../../../globals";
 import { LogOutService } from "../../service/log-out.service";
+import { TokenProviderService } from "../../service/token-provider.service";
 
 @Component({
   selector: 'app-header',
@@ -14,13 +15,16 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private logOutService: LogOutService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private tokenProvider: TokenProviderService
+  ) {
+  }
 
   ngOnInit(
-    token = localStorage.getItem('token')
   ) {
-    this.token = token;
+    this.tokenProvider.token.subscribe(t => {
+      this.token = t;
+    });
   }
 
   navigateAuth() {
@@ -33,13 +37,18 @@ export class HeaderComponent implements OnInit {
 
   logOut() {
     this.logOutService
-      .logOut(this.token)
+      .logOut(
+        this.token
+      )
       .subscribe(
         () => {
-          localStorage.removeItem('token');
+          this.tokenProvider.setUnauthorized();
           this.router.navigateByUrl("/main")
         },
-        (error) => console.log("Ti down"),
+        (error) => {
+          this.tokenProvider.setUnauthorized();
+          return console.log("Ti down");
+        }
       );
   }
 

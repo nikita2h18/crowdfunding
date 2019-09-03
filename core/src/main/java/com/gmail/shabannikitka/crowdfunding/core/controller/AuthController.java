@@ -28,8 +28,7 @@ public class AuthController {
         return authService.auth(authUserDto);
     }
 
-    @PostMapping
-    @RequestMapping("/log_out")
+    @GetMapping("/logout")
     public void logOut(@RequestHeader("token") String token) throws NoSuchEntityException, NoSuchTokenException {
         User user = tokenService.validate(token);
 
