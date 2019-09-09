@@ -5,6 +5,7 @@ public class UserDto {
     public String login;
     public String token;
     public String role;
+    public Boolean isBlocked;
 
     public UserDto(Long id, String login, String role) {
         this.id = id;
@@ -17,5 +18,12 @@ public class UserDto {
         this.login = login;
         this.token = token;
         this.role = role;
+    }
+
+    public UserDto(Long id, String login, String role, Boolean isBlocked) {
+        this.id = id;
+        this.login = login;
+        this.role = role;
+        this.isBlocked = isBlocked;
     }
 }

@@ -29,7 +29,8 @@ public class RegisterService {
             User client = new User(
                     registerUserDto.login,
                     Hasher.getHash(registerUserDto.password),
-                    Role.DEFAULT_USER
+                    Role.DEFAULT_USER,
+                    false
             );
             userRepository.save(client);
 

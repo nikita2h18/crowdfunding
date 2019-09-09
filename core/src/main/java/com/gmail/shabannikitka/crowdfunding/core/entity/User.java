@@ -22,6 +22,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @Column(name = "blocked")
+    private Boolean isBlocked;
+
     public User() {
     }
 
@@ -29,6 +32,13 @@ public class User {
         this.login = login;
         this.password = password;
         this.role = role;
+    }
+
+    public User(String login, String password, Role role, Boolean isBlocked) {
+        this.login = login;
+        this.password = password;
+        this.role = role;
+        this.isBlocked = isBlocked;
     }
 
     public Long getId() {
@@ -61,5 +71,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Boolean getBlocked() {
+        return isBlocked;
+    }
+
+    public void setBlocked(Boolean blocked) {
+        isBlocked = blocked;
     }
 }
