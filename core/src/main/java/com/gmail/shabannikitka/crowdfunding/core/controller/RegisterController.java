@@ -1,5 +1,6 @@
 package com.gmail.shabannikitka.crowdfunding.core.controller;
 
+import com.gmail.shabannikitka.crowdfunding.core.dto.RegisterUserDto;
 import com.gmail.shabannikitka.crowdfunding.core.dto.UserDto;
 import com.gmail.shabannikitka.crowdfunding.core.exception.RegisterException;
 import com.gmail.shabannikitka.crowdfunding.core.service.RegisterService;
@@ -21,7 +22,7 @@ public class RegisterController {
     }
 
     @PostMapping
-    public void register(@RequestBody UserDto userDto) throws RegisterException {
-        registerService.register(userDto);
+    public void register(@RequestBody RegisterUserDto registerUserDto) throws RegisterException {
+        registerService.register(registerUserDto);
     }
 }

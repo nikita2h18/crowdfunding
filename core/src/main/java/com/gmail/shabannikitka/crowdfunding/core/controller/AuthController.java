@@ -1,6 +1,7 @@
 package com.gmail.shabannikitka.crowdfunding.core.controller;
 
 import com.gmail.shabannikitka.crowdfunding.core.dto.AuthUserDto;
+import com.gmail.shabannikitka.crowdfunding.core.dto.UserDto;
 import com.gmail.shabannikitka.crowdfunding.core.entity.User;
 import com.gmail.shabannikitka.crowdfunding.core.exception.AuthenticationException;
 import com.gmail.shabannikitka.crowdfunding.core.exception.NoSuchEntityException;
@@ -24,14 +25,13 @@ public class AuthController {
     }
 
     @PostMapping
-    public String auth(@RequestBody AuthUserDto authUserDto) throws AuthenticationException, NoSuchEntityException {
+    public UserDto auth(@RequestBody AuthUserDto authUserDto) throws AuthenticationException, NoSuchEntityException {
         return authService.auth(authUserDto);
     }
 
     @GetMapping("/logout")
     public void logOut(@RequestHeader("token") String token) throws NoSuchEntityException, NoSuchTokenException {
         User user = tokenService.validate(token);
-
         authService.logOut(token);
     }
 }
