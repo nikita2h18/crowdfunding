@@ -11,7 +11,8 @@
             placeholder="Login"
             [(ngModel)]="authUser.login"
             [formControl]="login"
-            name="login">
+            name="login"
+          >
         </label>
         <mat-error *ngIf="login.invalid">{{getLoginErrorMessage()}}</mat-error>
       </mat-form-field>
@@ -23,7 +24,8 @@
             type="password"
             [(ngModel)]="authUser.password"
             [formControl]="password"
-            name="password">
+            name="password"
+          >
         </label>
         <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
@@ -31,7 +33,8 @@
         type="submit"
         mat-raised-button
         color="primary"
-        [disabled]="login.invalid || password.invalid">
+        [disabled]="login.invalid || password.invalid"
+      >
         Submit
       </button>
     </form>

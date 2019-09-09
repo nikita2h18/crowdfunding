@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from "../../service/registration.service";
 import { Router } from "@angular/router";
-import { RegisterUser } from "../../dto/RegisterUser";
+import { UserCredentials } from "../../dto/UserCredentials";
 import { FormControl, Validators } from "@angular/forms";
 
 @Component({
@@ -11,7 +11,7 @@ import { FormControl, Validators } from "@angular/forms";
 })
 
 export class RegistrationComponent implements OnInit {
-  private registerUser: RegisterUser = new RegisterUser();
+  private registerUser: UserCredentials = new UserCredentials();
 
   constructor(
     private registerService: RegistrationService,

@@ -1,0 +1,10 @@
+<table class="onload" *ngIf="users">
+  <tr *ngFor="let user of users">
+    <th class="login" align="left">
+      {{user.login}}
+    </th>
+    <th>
+      {{user.role}}
+    </th>
+  </tr>
+</table>

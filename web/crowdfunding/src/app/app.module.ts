@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthComponent } from './component/auth/auth.component';
 import { HeaderComponent } from './component/header/header.component';
 import { CreateCampaignComponent } from './component/create-campaign/create-campaign.component';
+import { UsersComponent } from './component/users/users.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CreateCampaignComponent } from './component/create-campaign/create-camp
     AuthComponent,
     HeaderComponent,
     CreateCampaignComponent,
+    UsersComponent,
   ],
   imports: [
     HttpClientModule,

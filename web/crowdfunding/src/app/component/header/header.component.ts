@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { getToken } from "codelyzer/angular/styles/cssLexer";
-import { LOCALSTORAGE_TOKEN_NAME } from "../../../globals";
 import { LogOutService } from "../../service/log-out.service";
-import { TokenProviderService } from "../../service/token-provider.service";
+import { MeProviderService } from "../../service/me-provider.service";
+import { AuthorizedUser } from "../../dto/AuthorizedUser";
+import { AuthService } from "../../service/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -11,19 +11,20 @@ import { TokenProviderService } from "../../service/token-provider.service";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  token: string;
+  user: AuthorizedUser;
 
   constructor(
     private logOutService: LogOutService,
     private router: Router,
-    private tokenProvider: TokenProviderService
+    private meProvider: MeProviderService,
+    private authService: AuthService,
   ) {
   }
 
   ngOnInit(
   ) {
-    this.tokenProvider.token.subscribe(t => {
-      this.token = t;
+    this.meProvider.user.subscribe(user => {
+      this.user = user;
     });
   }
 
@@ -38,15 +39,15 @@ export class HeaderComponent implements OnInit {
   logOut() {
     this.logOutService
       .logOut(
-        this.token
+        this.user.token
       )
       .subscribe(
         () => {
-          this.tokenProvider.setUnauthorized();
+          this.meProvider.setUnauthorized();
           this.router.navigateByUrl("/main")
         },
-        (error) => {
-          this.tokenProvider.setUnauthorized();
+        error => {
+          this.meProvider.setUnauthorized();
           return console.log("Ti down");
         }
       );
@@ -54,5 +55,9 @@ export class HeaderComponent implements OnInit {
 
   navigateCampaign() {
     this.router.navigateByUrl("/campaign/create")
+  }
+
+  findAll() {
+    this.router.navigateByUrl("users");
   }
 }

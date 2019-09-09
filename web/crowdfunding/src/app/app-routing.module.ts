@@ -4,6 +4,7 @@ import { RegistrationComponent } from "./component/registration/registration.com
 import { AuthComponent } from "./component/auth/auth.component";
 import { HeaderComponent } from "./component/header/header.component";
 import { CreateCampaignComponent } from "./component/create-campaign/create-campaign.component";
+import { UsersComponent } from "./component/users/users.component";
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'campaign/create',
     component: CreateCampaignComponent,
+  },
+  {
+    path: 'users',
+    component: UsersComponent,
   },
 ];
 

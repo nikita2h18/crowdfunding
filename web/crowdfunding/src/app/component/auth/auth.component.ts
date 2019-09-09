@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthUser } from "../../dto/AuthUser";
 import { Router } from "@angular/router";
 import { AuthService } from "../../service/auth.service";
 import { LOCALSTORAGE_TOKEN_NAME } from "../../../globals";
-import { TokenProviderService } from "../../service/token-provider.service";
 import { FormControl, Validators } from "@angular/forms";
+import { UserCredentials } from "../../dto/UserCredentials";
+import { MeProviderService } from "../../service/me-provider.service";
+import { AuthorizedUser } from "../../dto/AuthorizedUser";
 
 @Component({
   selector: 'app-auth',
@@ -12,7 +13,7 @@ import { FormControl, Validators } from "@angular/forms";
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
-  private authUser: AuthUser = new AuthUser();
+  private authUser: UserCredentials = new UserCredentials();
 
   login = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required, Validators.minLength(8)]);
@@ -20,16 +21,15 @@ export class AuthComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private tokenProviderService: TokenProviderService
+    private meProviderService: MeProviderService,
   ) { }
 
   ngOnInit() {
   }
 
   auth() {
-    this.authService.auth(this.authUser).subscribe(token => {
-      this.tokenProviderService.setToken(token);
-
+    this.authService.auth(this.authUser).subscribe(user => {
+      this.meProviderService.setUser(user);
       this.router.navigate(['/main'], {replaceUrl: true});
     });
   }

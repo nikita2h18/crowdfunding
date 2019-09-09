@@ -1,13 +1,14 @@
 <mat-toolbar color="primary">
-  <p class="title">
-    Take my money
-  </p>
-  <div class="left">
-    <button mat-button color="white" *ngIf="token" (click)="navigateCampaign()">Create Campaign</button>
-  </div>
-  <div class="right">
-    <button mat-button color="white" *ngIf="!token" (click)="navigateRegister()">Sign up</button>
-    <button mat-button color="white" *ngIf="!token" (click)="navigateAuth()">Sign in</button>
-    <button mat-button color="white" *ngIf="token" (click)="logOut()">Log out</button>
-  </div>
+    <p class="title">
+      Take my money
+    </p>
+    <div class="left">
+      <button mat-button color="white" *ngIf="user.token" (click)="navigateCampaign()">Create Campaign</button>
+    </div>
+    <div class="right">
+      <button mat-button color="white" *ngIf="!user.token" (click)="navigateRegister()">Sign up</button>
+      <button mat-button color="white" *ngIf="!user.token" (click)="navigateAuth()">Sign in</button>
+      <button mat-button color="white" *ngIf="user.token" (click)="logOut()">Log out</button>
+      <button mat-button color="white" *ngIf="user.role == 'ADMIN'" (click)="findAll()">Show users</button>
+    </div>
 </mat-toolbar>
