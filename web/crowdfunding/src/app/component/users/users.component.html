@@ -1,10 +1,23 @@
+<app-header></app-header>
+<mat-toolbar>
+  <button mat-raised-button color="primary" (click)="block()">block</button>
+  <button mat-raised-button color="primary" (click)="unblock()">unblock</button>
+  <button mat-raised-button color="primary" (click)="setAdminRole()">make admin</button>
+  <button mat-raised-button color="primary" (click)="setDefaultRole()">make defult user</button>
+</mat-toolbar>
 <table class="onload" *ngIf="users">
   <tr *ngFor="let user of users">
+    <mat-checkbox
+      [(ngModel)]="user.checked"
+      [ngModelOptions]="{standalone: true}"></mat-checkbox>
     <th class="login" align="left">
       {{user.login}}
     </th>
     <th>
       {{user.role}}
+    </th>
+    <th>
+      {{user.blocked}}
     </th>
   </tr>
 </table>
