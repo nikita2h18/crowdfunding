@@ -21,7 +21,6 @@ public class CampaignService {
 
     public CampaignDto createCampaign(CreateCampaignDto createCampaignDto, User user) throws DuplicationException {
 
-
         if (campaignRepository.findByName(createCampaignDto.name).isPresent())
             throw new DuplicationException("Campaign with such name already exist");
 
