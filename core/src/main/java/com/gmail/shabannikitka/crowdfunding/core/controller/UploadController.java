@@ -17,6 +17,6 @@ public class UploadController {
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("file") MultipartFile file) {
         String url = cloudinaryService.uploadFile(file);
-        return "File uploaded successfully: File path :  " + url;
+        return url;
     }
 }

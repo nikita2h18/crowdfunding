@@ -1,26 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { CreateCampaign } from "../../dto/CreateCampaign";
+import { CreateCampaignService } from "../../service/create-campaign.service";
+import { Router } from "@angular/router";
+import { UploadImageService } from "../../service/upload-image.service";
 
 @Component({
   selector: 'app-create-campaign',
   templateUrl: './create-campaign.component.html',
   styleUrls: ['./create-campaign.component.scss']
 })
-export class CreateCampaignComponent implements OnInit {
-  selectedFile = null;
+export class CreateCampaignComponent {
+  private createCampaign: CreateCampaign = new CreateCampaign();
+  private file: any;
 
   constructor(
     private http: HttpClient,
-  ) { }
-
-  ngOnInit() {
+    private router: Router,
+    private createCampaignService: CreateCampaignService,
+    private uploadImageService: UploadImageService,
+  ) {
   }
 
-  onFileSelected(event) {
-      this.selectedFile = event.target.files[0];
+  onChange(event) {
+    this.file = event.srcElement.files[0];
   }
 
-  onFileComplete(data: any) {
-    console.log(data); // We just print out data bubbled up from event emitter.
+  create() {
+    this.uploadImageService.upload(this.file)
+      .subscribe(
+        path => {
+          this.createCampaign.path = path;
+          this.createCampaignService.createCampaign(localStorage.getItem('token'), this.createCampaign)
+            .subscribe(
+              () => {
+                this.router.navigateByUrl("/main");
+              },
+              () => {
+                console.log("error2");
+              }
+            )
+        },
+        () => {
+          console.log("error1");
+        }
+      )
+
   }
 }

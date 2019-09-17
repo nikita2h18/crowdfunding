@@ -9,6 +9,8 @@ import com.gmail.shabannikitka.crowdfunding.core.repository.CampaignRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class CampaignService {
 
@@ -20,17 +22,16 @@ public class CampaignService {
     }
 
     public CampaignDto createCampaign(CreateCampaignDto createCampaignDto, User user) throws DuplicationException {
-
         if (campaignRepository.findByName(createCampaignDto.name).isPresent())
             throw new DuplicationException("Campaign with such name already exist");
 
         Campaign campaign = new Campaign(
-            createCampaignDto.name,
-            createCampaignDto.summary,
-            createCampaignDto.target,
-            user,
-            createCampaignDto.from,
-            createCampaignDto.to
+                createCampaignDto.name,
+                createCampaignDto.summary,
+                createCampaignDto.target,
+                user,
+                LocalDate.now(),
+                createCampaignDto.to
         );
 
         campaignRepository.save(campaign);
