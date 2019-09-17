@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
-import { API_URL } from "../../globals";
-import { HttpClient } from "@angular/common/http";
-import { CreateCampaign } from "../dto/CreateCampaign";
+import { Observable } from 'rxjs';
+import { API_URL } from '../../globals';
+import { HttpClient } from '@angular/common/http';
+import { CreateCampaign } from '../dto/CreateCampaign';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +23,5 @@ export class CreateCampaignService {
         },
       },
     );
-  };
+  }
 }

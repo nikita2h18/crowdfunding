@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { User } from "../dto/User";
-import { API_URL } from "../../globals";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { User } from '../dto/User';
+import { API_URL } from '../../globals';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +18,8 @@ export class UserService {
       API_URL + 'admin/users',
       {
         headers: {
-          token: token
+          token
         }
       }
-    );
+    )
 }

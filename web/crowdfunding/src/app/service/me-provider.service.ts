@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from "rxjs";
-import { AuthorizedUser } from "../dto/AuthorizedUser";
-import { LOCALSTORAGE_TOKEN_NAME } from "../../globals";
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AuthorizedUser } from '../dto/AuthorizedUser';
+import { LOCALSTORAGE_TOKEN_NAME } from '../../globals';
 
 @Injectable({
   providedIn: 'root'

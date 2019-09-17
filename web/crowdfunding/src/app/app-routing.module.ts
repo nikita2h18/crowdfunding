@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { RegistrationComponent } from "./component/registration/registration.component";
-import { AuthComponent } from "./component/auth/auth.component";
-import { HeaderComponent } from "./component/header/header.component";
-import { CreateCampaignComponent } from "./component/create-campaign/create-campaign.component";
-import { UsersComponent } from "./component/users/users.component";
+import { RegistrationComponent } from './component/registration/registration.component';
+import { AuthComponent } from './component/auth/auth.component';
+import { HeaderComponent } from './component/header/header.component';
+import { CreateCampaignComponent } from './component/create-campaign/create-campaign.component';
+import { UsersComponent } from './component/users/users.component';
+import {NgModule} from '@angular/core';
 
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
     component: AuthComponent,
   },
   {
-    path:'main',
+    path: 'main',
     component: HeaderComponent
   },
   {

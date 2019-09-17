@@ -12,11 +12,11 @@ create table "user"
   role     role      not null
 );
 
-alter table "user"
+alter table ""
   owner to postgres;
 
 create unique index """user""_login_uindex"
-  on "user" (login);
+  on "" (login);
 
 create table category
 (
@@ -40,23 +40,23 @@ create table tags
 alter table tags
   owner to postgres;
 
-create table company
+create table campaign
 (
   id          bigserial        not null
-    constraint company_pk
+    constraint campaign_pk
       primary key,
   name        varchar          not null,
   summary     varchar          not null,
   category_id bigint           not null
-    constraint company_category_id_fk
+    constraint campaign_category_id_fk
       references category,
   tags_id     bigint           not null
-    constraint company_tags_id_fk
+    constraint campaign_tags_id_fk
       references tags,
   target      double precision not null,
   user_id     bigint           not null
-    constraint company_user_id_fk
-      references "user",
+    constraint campaign_user_id_fk
+      references "",
   date_from   date             not null,
   date_to     date             not null
 );
@@ -75,7 +75,7 @@ create table token
   token   varchar   not null,
   user_id bigint    not null
     constraint token_user_id_fk
-      references "user"
+      references ""
 );
 
 alter table token

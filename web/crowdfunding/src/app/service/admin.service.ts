@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
-import { User } from "../dto/User";
-import { API_URL } from "../../globals";
-import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
+import { User } from '../dto/User';
+import { API_URL } from '../../globals';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,7 @@ export class AdminService {
         }
       }
     )
-  );
+  )
 
   public unblock = (token: string, userId: bigint[]): Observable<void> => (
     this.http.post<void>(
@@ -35,7 +35,7 @@ export class AdminService {
         }
       }
     )
-  );
+  )
 
   public setAdminRole = (token: string, userId: bigint[]): Observable<void> => (
     this.http.post<void>(
@@ -47,7 +47,7 @@ export class AdminService {
         }
       }
     )
-  );
+  )
 
   public setDefaultRole = (token: string, userId: bigint[]): Observable<void> => (
     this.http.post<void>(
@@ -59,5 +59,5 @@ export class AdminService {
         }
       }
     )
-  );
+  )
 }

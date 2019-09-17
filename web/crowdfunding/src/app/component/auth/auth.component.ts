@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { AuthService } from "../../service/auth.service";
-import { LOCALSTORAGE_TOKEN_NAME } from "../../../globals";
-import { FormControl, Validators } from "@angular/forms";
-import { UserCredentials } from "../../dto/UserCredentials";
-import { MeProviderService } from "../../service/me-provider.service";
-import { AuthorizedUser } from "../../dto/AuthorizedUser";
+import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
+import { LOCALSTORAGE_TOKEN_NAME } from '../../../globals';
+import { FormControl, Validators } from '@angular/forms';
+import { UserCredentials } from '../../dto/UserCredentials';
+import { MeProviderService } from '../../service/me-provider.service';
+import { AuthorizedUser } from '../../dto/AuthorizedUser';
 
 @Component({
   selector: 'app-auth',

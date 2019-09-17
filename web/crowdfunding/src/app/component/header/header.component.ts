@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { LogOutService } from "../../service/log-out.service";
-import { MeProviderService } from "../../service/me-provider.service";
-import { AuthorizedUser } from "../../dto/AuthorizedUser";
-import { AuthService } from "../../service/auth.service";
+import { Router } from '@angular/router';
+import { LogOutService } from '../../service/log-out.service';
+import { MeProviderService } from '../../service/me-provider.service';
+import { AuthorizedUser } from '../../dto/AuthorizedUser';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -29,11 +29,11 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateAuth() {
-    this.router.navigateByUrl("/auth")
+    this.router.navigateByUrl('/auth');
   }
 
   navigateRegister() {
-    this.router.navigateByUrl("/register")
+    this.router.navigateByUrl('/register');
   }
 
   logOut() {
@@ -44,20 +44,20 @@ export class HeaderComponent implements OnInit {
       .subscribe(
         () => {
           this.meProvider.setUnauthorized();
-          this.router.navigateByUrl("/main")
+          this.router.navigateByUrl('/main');
         },
         error => {
           this.meProvider.setUnauthorized();
-          return console.log("Ti down");
+          return console.log('Ti down');
         }
       );
   }
 
   navigateCampaign() {
-    this.router.navigateByUrl("/campaign/create")
+    this.router.navigateByUrl('/campaign/create');
   }
 
   findAll() {
-    this.router.navigateByUrl("users");
+    this.router.navigateByUrl('users');
   }
 }
