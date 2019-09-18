@@ -8,7 +8,7 @@
     <div class="right">
       <button mat-button color="white" *ngIf="!user.token" (click)="navigateRegister()">Sign up</button>
       <button mat-button color="white" *ngIf="!user.token" (click)="navigateAuth()">Sign in</button>
-      <button mat-button color="white" *ngIf="user.token" (click)="logOut()">Log out</button>
       <button mat-button color="white" *ngIf="user.role == 'ADMIN'" (click)="findAll()">Show users</button>
+      <button mat-button color="white" *ngIf="user.token" (click)="logOut()">Log out</button>
     </div>
 </mat-toolbar>

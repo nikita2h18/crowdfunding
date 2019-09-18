@@ -26,6 +26,8 @@ export class HeaderComponent implements OnInit {
     this.meProvider.user.subscribe(user => {
       this.user = user;
     });
+    this.user.token = this.meProvider.getUserToken();
+    this.user.role = this.meProvider.getUserRole();
   }
 
   navigateAuth() {

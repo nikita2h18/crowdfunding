@@ -15,6 +15,15 @@ export class MeProviderService {
   setUser(user: AuthorizedUser) {
     this.userSubject.next(user);
     localStorage.setItem(LOCALSTORAGE_TOKEN_NAME, user.token);
+    localStorage.setItem('role', user.role)
+  }
+
+  getUserRole() {
+    return localStorage.getItem('role');
+  }
+
+  getUserToken() {
+    return localStorage.getItem(LOCALSTORAGE_TOKEN_NAME);
   }
 
   setUnauthorized() {

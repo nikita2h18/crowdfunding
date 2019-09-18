@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CampaignService} from '../../service/campaign.service';
+import {Campaign} from '../../dto/Campaign';
 
 @Component({
   selector: 'app-all-campaigns',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-campaigns.component.scss']
 })
 export class AllCampaignsComponent implements OnInit {
+  private campaigns: Campaign[] = [];
 
-  constructor() { }
+  constructor(
+    private campaignService: CampaignService
+  ) { }
 
   ngOnInit() {
+    this.campaignService.getAll()
+      .subscribe(
+        (campaigns: Campaign[]): Campaign[] => this.campaigns = campaigns
+      );
   }
 
 }
