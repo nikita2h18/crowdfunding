@@ -9,13 +9,15 @@ public class CampaignDto {
     public Long userId;
     public LocalDate from;
     public LocalDate to;
+    public String imagePath;
 
-    public CampaignDto(String name, String summary, double target, Long userId, LocalDate from, LocalDate to) {
+    public CampaignDto(String name, String summary, double target, Long userId, LocalDate from, LocalDate to, String imagePath) {
         this.name = name;
         this.summary = summary;
         this.target = target;
         this.userId = userId;
         this.from = from;
         this.to = to;
+        this.imagePath = imagePath;
     }
 }

@@ -4,6 +4,7 @@ import com.gmail.shabannikitka.crowdfunding.core.entity.Campaign;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -11,4 +12,7 @@ public interface CampaignRepository extends CrudRepository<Campaign, Long> {
 
     Optional<Campaign> findByName(String name);
 
+    List<Campaign> findAllByUserId(Long id);
+
+    List<Campaign> findAll();
 }

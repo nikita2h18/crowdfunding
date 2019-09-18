@@ -10,6 +10,8 @@ import com.gmail.shabannikitka.crowdfunding.core.service.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/campaign")
 public class CampaignController {
@@ -31,4 +33,13 @@ public class CampaignController {
         return campaignService.createCampaign(createCampaignDto, tokenService.validate(token));
     }
 
+    @GetMapping("/all")
+    public List<CampaignDto> showAllCampaigns() {
+        return campaignService.showAllCampaigns();
+    }
+
+    @GetMapping("/user")
+    public List<CampaignDto> showUserCampaigns(@RequestHeader("token") String token) throws NoSuchEntityException {
+        return campaignService.showUserCampaigns(tokenService.validate(token));
+    }
 }

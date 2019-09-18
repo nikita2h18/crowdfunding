@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CampaignService {
@@ -43,7 +45,38 @@ public class CampaignService {
                 campaign.getTarget(),
                 campaign.getUser().getId(),
                 campaign.getFrom(),
-                campaign.getTo()
+                campaign.getTo(),
+                campaign.getImagePath()
         );
+    }
+
+    public List<CampaignDto> showAllCampaigns() {
+        return campaignRepository.findAll().stream()
+                .map(
+                        c -> new CampaignDto(
+                                c.getName(),
+                                c.getSummary(),
+                                c.getTarget(),
+                                c.getUser().getId(),
+                                c.getFrom(),
+                                c.getTo(),
+                                c.getImagePath()
+                        )
+                ).collect(Collectors.toList());
+    }
+
+    public List<CampaignDto> showUserCampaigns(User user) {
+        return campaignRepository.findAllByUserId(user.getId()).stream()
+                .map(
+                        campaign -> new CampaignDto(
+                                campaign.getName(),
+                                campaign.getSummary(),
+                                campaign.getTarget(),
+                                campaign.getUser().getId(),
+                                campaign.getFrom(),
+                                campaign.getTo(),
+                                campaign.getImagePath()
+                        )
+                ).collect(Collectors.toList());
     }
 }
