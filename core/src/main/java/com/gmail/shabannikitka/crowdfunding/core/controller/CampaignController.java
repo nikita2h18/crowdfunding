@@ -24,13 +24,11 @@ public class CampaignController {
         this.tokenService = tokenService;
     }
 
-    @PostMapping
-    @RequestMapping("/create")
+    //TODO
+    @PostMapping("/create")
     public CampaignDto createCampaign(@RequestHeader("token") String token, @RequestBody CreateCampaignDto createCampaignDto)
             throws NoSuchEntityException, DuplicationException {
-        User user = tokenService.validate(token);
-
-        return campaignService.createCampaign(createCampaignDto, user);
+        return campaignService.createCampaign(createCampaignDto, tokenService.validate(token));
     }
 
 }

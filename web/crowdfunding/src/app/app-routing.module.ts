@@ -10,6 +10,11 @@ import {NgModule} from '@angular/core';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full'
+  },
+  {
     path: 'register',
     component: RegistrationComponent,
   },

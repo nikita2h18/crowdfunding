@@ -1,7 +1,6 @@
 package com.gmail.shabannikitka.crowdfunding.core.controller;
 
 import com.gmail.shabannikitka.crowdfunding.core.dto.RegisterUserDto;
-import com.gmail.shabannikitka.crowdfunding.core.dto.UserDto;
 import com.gmail.shabannikitka.crowdfunding.core.exception.RegisterException;
 import com.gmail.shabannikitka.crowdfunding.core.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;

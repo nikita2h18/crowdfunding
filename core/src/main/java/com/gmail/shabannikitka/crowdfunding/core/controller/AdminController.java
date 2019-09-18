@@ -19,7 +19,6 @@ public class AdminController {
     private final TokenService tokenService;
     private final AdminService adminService;
 
-
     @Autowired
     public AdminController(TokenService tokenService, AdminService adminService) {
         this.tokenService = tokenService;
@@ -35,7 +34,7 @@ public class AdminController {
 
     @PostMapping
     @RequestMapping("block")
-    public void block(@RequestHeader("token") String token,@RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
+    public void block(@RequestHeader("token") String token, @RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
         User user = tokenService.validate(token);
         if (user.getRole() == Role.ADMIN) {
             adminService.block(userIds);
@@ -46,7 +45,7 @@ public class AdminController {
 
     @PostMapping
     @RequestMapping("unblock")
-    public void unblock(@RequestHeader("token") String token,@RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
+    public void unblock(@RequestHeader("token") String token, @RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
         User user = tokenService.validate(token);
         if (user.getRole() == Role.ADMIN) {
             adminService.unblock(userIds);
@@ -56,8 +55,8 @@ public class AdminController {
     }
 
     @PostMapping
-    @RequestMapping("setadmin")
-    public void setAdminRole(@RequestHeader("token") String token,@RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
+    @RequestMapping("setAdmin")
+    public void setAdminRole(@RequestHeader("token") String token, @RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
         User user = tokenService.validate(token);
         if (user.getRole() == Role.ADMIN) {
             adminService.setAdminRole(userIds);
@@ -68,7 +67,7 @@ public class AdminController {
 
     @PostMapping
     @RequestMapping("setdefault")
-    public void setDefaultRole(@RequestHeader("token") String token,@RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
+    public void setDefaultRole(@RequestHeader("token") String token, @RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
         User user = tokenService.validate(token);
         if (user.getRole() == Role.ADMIN) {
             adminService.setDefaultRole(userIds);

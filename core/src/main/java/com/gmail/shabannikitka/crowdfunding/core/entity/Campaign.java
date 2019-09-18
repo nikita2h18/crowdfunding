@@ -38,6 +38,7 @@ public class Campaign {
     }
 
     public Campaign(String name, String summary, double target, User user, LocalDate from, LocalDate to) {
+        this();
         this.name = name;
         this.summary = summary;
         this.target = target;
@@ -47,12 +48,7 @@ public class Campaign {
     }
 
     public Campaign(String name, String summary, double target, User user, LocalDate from, LocalDate to, String imagePath) {
-        this.name = name;
-        this.summary = summary;
-        this.target = target;
-        this.user = user;
-        this.from = from;
-        this.to = to;
+        this(name, summary, target, user, from, to);
         this.imagePath = imagePath;
     }
 

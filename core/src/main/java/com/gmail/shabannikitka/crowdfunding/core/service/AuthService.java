@@ -28,7 +28,7 @@ public class AuthService {
         if (!Hasher.check(authUserDto.password, user.getPassword()))
             throw new AuthenticationException("Invalid client credentials");
 
-        return  new UserDto(
+        return new UserDto(
                 user.getId(),
                 user.getLogin(),
                 tokenService.getToken(user),

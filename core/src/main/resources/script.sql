@@ -5,7 +5,7 @@ alter type role owner to postgres;
 create table "user"
 (
   id       bigserial not null
-    constraint """user""_pk"
+    constraint "user_pk"
       primary key,
   login    varchar   not null,
   password varchar   not null,
@@ -15,7 +15,7 @@ create table "user"
 alter table "user"
   owner to postgres;
 
-create unique index """user""_login_uindex"
+create unique index "user_login_uindex"
   on "user" (login);
 
 create table category
@@ -69,7 +69,7 @@ create table token
   token   varchar   not null,
   user_id bigint    not null
     constraint token_user_id_fk
-      references ""
+      references "user"
 );
 
 alter table token

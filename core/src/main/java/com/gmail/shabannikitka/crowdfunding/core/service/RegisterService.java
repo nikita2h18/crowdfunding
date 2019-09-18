@@ -1,7 +1,6 @@
 package com.gmail.shabannikitka.crowdfunding.core.service;
 
 import com.gmail.shabannikitka.crowdfunding.core.dto.RegisterUserDto;
-import com.gmail.shabannikitka.crowdfunding.core.dto.UserDto;
 import com.gmail.shabannikitka.crowdfunding.core.entity.User;
 import com.gmail.shabannikitka.crowdfunding.core.entity.enums.Role;
 import com.gmail.shabannikitka.crowdfunding.core.exception.RegisterException;
@@ -26,13 +25,13 @@ public class RegisterService {
         if (userRepository.findByLogin(registerUserDto.login).isPresent()) {
             throw new RegisterException("client with such login already exist");
         }
-            User client = new User(
-                    registerUserDto.login,
-                    Hasher.getHash(registerUserDto.password),
-                    Role.DEFAULT_USER,
-                    false
-            );
-            userRepository.save(client);
+        User client = new User(
+                registerUserDto.login,
+                Hasher.getHash(registerUserDto.password),
+                Role.DEFAULT_USER,
+                false
+        );
+        userRepository.save(client);
 
     }
 }
