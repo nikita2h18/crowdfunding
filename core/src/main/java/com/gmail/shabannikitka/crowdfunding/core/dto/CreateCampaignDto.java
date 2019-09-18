@@ -9,5 +9,5 @@ public class CreateCampaignDto {
     public String summary;
     public Double target;
     public LocalDate to;
-    public String image;
+    public String imagePath;
 }

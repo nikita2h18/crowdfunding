@@ -12,25 +12,25 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/campaign")
-public class CompanyController {
+public class CampaignController {
 
     private final CampaignService campaignService;
     private final TokenService tokenService;
 
 
     @Autowired
-    public CompanyController(CampaignService campaignService, TokenService tokenService) {
+    public CampaignController(CampaignService campaignService, TokenService tokenService) {
         this.campaignService = campaignService;
         this.tokenService = tokenService;
     }
 
     @PostMapping
     @RequestMapping("/create")
-    public CampaignDto createCampaign(@RequestHeader("token") String token, @RequestBody CreateCampaignDto campaignDto)
+    public CampaignDto createCampaign(@RequestHeader("token") String token, @RequestBody CreateCampaignDto createCampaignDto)
             throws NoSuchEntityException, DuplicationException {
         User user = tokenService.validate(token);
 
-        return campaignService.createCampaign(campaignDto, user);
+        return campaignService.createCampaign(createCampaignDto, user);
     }
 
 }

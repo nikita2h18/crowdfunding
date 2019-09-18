@@ -31,7 +31,8 @@ public class CampaignService {
                 createCampaignDto.target,
                 user,
                 LocalDate.now(),
-                createCampaignDto.to
+                createCampaignDto.to,
+                createCampaignDto.imagePath
         );
 
         campaignRepository.save(campaign);

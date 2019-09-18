@@ -3,5 +3,5 @@ export class CreateCampaign {
   summary: string;
   target: bigint;
   to: Date;
-  path: string;
+  imagePath: string;
 }

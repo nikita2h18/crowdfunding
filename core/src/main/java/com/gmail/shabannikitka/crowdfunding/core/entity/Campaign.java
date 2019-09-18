@@ -31,6 +31,9 @@ public class Campaign {
     @Column(name = "date_to")
     private LocalDate to;
 
+    @Column(name = "image_path")
+    private String imagePath;
+
     public Campaign() {
     }
 
@@ -41,6 +44,16 @@ public class Campaign {
         this.user = user;
         this.from = from;
         this.to = to;
+    }
+
+    public Campaign(String name, String summary, double target, User user, LocalDate from, LocalDate to, String imagePath) {
+        this.name = name;
+        this.summary = summary;
+        this.target = target;
+        this.user = user;
+        this.from = from;
+        this.to = to;
+        this.imagePath = imagePath;
     }
 
     public Long getId() {
@@ -97,5 +110,13 @@ public class Campaign {
 
     public void setTo(LocalDate to) {
         this.to = to;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

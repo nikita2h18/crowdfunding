@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { CreateCampaign } from '../../dto/CreateCampaign';
-import { CreateCampaignService } from '../../service/create-campaign.service';
-import { Router } from '@angular/router';
-import { UploadImageService } from '../../service/upload-image.service';
+import {Component} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {CreateCampaign} from '../../dto/CreateCampaign';
+import {CreateCampaignService} from '../../service/create-campaign.service';
+import {Router} from '@angular/router';
+import {UploadImageService} from '../../service/upload-image.service';
 
 @Component({
   selector: 'app-create-campaign',
@@ -30,19 +30,13 @@ export class CreateCampaignComponent {
     this.uploadImageService.upload(this.file)
       .subscribe(
         path => {
-          this.createCampaign.path = path;
+          this.createCampaign.imagePath = path;
           this.createCampaignService.createCampaign(localStorage.getItem('token'), this.createCampaign)
             .subscribe(
               () => {
                 this.router.navigateByUrl('/main');
-              },
-              () => {
-                console.log('error2');
               }
             );
-        },
-        () => {
-          console.log('error1');
         }
       );
 

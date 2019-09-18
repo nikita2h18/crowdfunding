@@ -12,11 +12,11 @@ create table "user"
   role     role      not null
 );
 
-alter table ""
+alter table "user"
   owner to postgres;
 
 create unique index """user""_login_uindex"
-  on "" (login);
+  on "user" (login);
 
 create table category
 (
@@ -47,16 +47,10 @@ create table campaign
       primary key,
   name        varchar          not null,
   summary     varchar          not null,
-  category_id bigint           not null
-    constraint campaign_category_id_fk
-      references category,
-  tags_id     bigint           not null
-    constraint campaign_tags_id_fk
-      references tags,
   target      double precision not null,
   user_id     bigint           not null
     constraint campaign_user_id_fk
-      references "",
+      references "user",
   date_from   date             not null,
   date_to     date             not null
 );

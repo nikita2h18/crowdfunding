@@ -16,6 +16,6 @@ export class UploadImageService {
     const formData = new FormData();
     formData.append('file', file);
 
-    return this.http.post<string>(API_URL + 'upload', formData);
+    return this.http.post<string>(API_URL + 'upload', formData, {responseType: 'text' as 'json'});
   }
 }
