@@ -17,6 +17,7 @@ import { CreateCampaignComponent } from './component/create-campaign/create-camp
 import { UsersComponent } from './component/users/users.component';
 import { AllCampaignsComponent } from './component/all-campaigns/all-campaigns.component';
 import { UserCampaignsComponent } from './component/user-campaigns/user-campaigns.component';
+import { CampaignComponent } from './component/campaign/campaign.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { UserCampaignsComponent } from './component/user-campaigns/user-campaign
     UsersComponent,
     AllCampaignsComponent,
     UserCampaignsComponent,
+    CampaignComponent,
   ],
   imports: [
     HttpClientModule,

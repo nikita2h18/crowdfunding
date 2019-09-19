@@ -34,7 +34,7 @@ export class CreateCampaignComponent {
           this.createCampaignService.createCampaign(localStorage.getItem('token'), this.createCampaign)
             .subscribe(
               () => {
-                this.router.navigateByUrl('/main');
+                this.router.navigateByUrl('/campaign/all');
               }
             );
         }

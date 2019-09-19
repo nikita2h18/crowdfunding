@@ -55,11 +55,19 @@ export class HeaderComponent implements OnInit {
       );
   }
 
-  navigateCampaign() {
+  navigateCreateCampaign() {
     this.router.navigateByUrl('/campaign/create');
   }
 
   findAll() {
     this.router.navigateByUrl('users');
+  }
+
+  navigateCampaign() {
+    this.router.navigateByUrl('/campaign/all');
+  }
+
+  navigateUserCampaigns() {
+    this.router.navigateByUrl('/campaign/user');
   }
 }

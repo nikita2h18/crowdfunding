@@ -7,12 +7,14 @@ import { CreateCampaignComponent } from './component/create-campaign/create-camp
 import { UsersComponent } from './component/users/users.component';
 import {NgModule} from '@angular/core';
 import {AllCampaignsComponent} from "./component/all-campaigns/all-campaigns.component";
+import {UserCampaignsComponent} from "./component/user-campaigns/user-campaigns.component";
+import {CampaignComponent} from "./component/campaign/campaign.component";
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'main',
+    redirectTo: 'campaign/all',
     pathMatch: 'full'
   },
   {
@@ -38,6 +40,14 @@ const routes: Routes = [
   {
     path: 'campaign/all',
     component: AllCampaignsComponent,
+  },
+  {
+    path: 'campaign/user',
+    component: UserCampaignsComponent,
+  },
+  {
+    path: 'campaign',
+    component: CampaignComponent,
   },
 ];
 

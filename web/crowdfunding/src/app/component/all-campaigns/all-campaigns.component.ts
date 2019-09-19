@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CampaignService} from '../../service/campaign.service';
 import {Campaign} from '../../dto/Campaign';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-all-campaigns',
@@ -11,14 +12,20 @@ export class AllCampaignsComponent implements OnInit {
   private campaigns: Campaign[] = [];
 
   constructor(
-    private campaignService: CampaignService
+    private campaignService: CampaignService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     this.campaignService.getAll()
       .subscribe(
-        (campaigns: Campaign[]): Campaign[] => this.campaigns = campaigns
+        (campaigns: Campaign[]): Campaign[] => {
+          return this.campaigns = campaigns;
+        }
       );
   }
 
+  navigate() {
+    this.router.navigateByUrl("/campaign");
+  }
 }

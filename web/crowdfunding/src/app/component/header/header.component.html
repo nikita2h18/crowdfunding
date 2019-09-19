@@ -3,9 +3,11 @@
       Take my money
     </p>
     <div class="left">
-      <button mat-button color="white" *ngIf="user.token" (click)="navigateCampaign()">Create Campaign</button>
+      <button mat-button color="white" (click)="navigateCampaign()">Campaigns</button>
+      <button mat-button color="white" *ngIf="user.token" (click)="navigateCreateCampaign()">Create Campaign</button>
     </div>
     <div class="right">
+      <button mat-button color="white" *ngIf="user.token" (click)="navigateUserCampaigns()">My campaigns</button>
       <button mat-button color="white" *ngIf="!user.token" (click)="navigateRegister()">Sign up</button>
       <button mat-button color="white" *ngIf="!user.token" (click)="navigateAuth()">Sign in</button>
       <button mat-button color="white" *ngIf="user.role == 'ADMIN'" (click)="findAll()">Show users</button>
