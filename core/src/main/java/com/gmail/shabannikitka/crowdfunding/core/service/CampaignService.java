@@ -90,8 +90,8 @@ public class CampaignService {
                 ).collect(Collectors.toList());
     }
 
-    public void updateCampaign(UpdateCampaignDto updateCampaignDto, User user) throws NoSuchEntityException, NoAccessRightsException {
-        Campaign campaign = campaignRepository.findById(updateCampaignDto.id)
+    public void updateCampaign(UpdateCampaignDto updateCampaignDto, Long id, User user) throws NoSuchEntityException, NoAccessRightsException {
+        Campaign campaign = campaignRepository.findById(id)
                 .orElseThrow(() -> new NoSuchEntityException("Campaign not found"));
 
         if (!campaign.getUser().getId().equals(user.getId()) && !user.getRole().equals(Role.ADMIN)) {

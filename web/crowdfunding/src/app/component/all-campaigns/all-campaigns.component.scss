@@ -13,7 +13,8 @@
 .onload {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+  background: rgba(154,154,154,0.24);
 }
 
 .example-header-image {

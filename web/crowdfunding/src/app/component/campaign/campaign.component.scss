@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  flex-direction: row;
+}
+
+.onload {
+  margin-left: 20px;
+  width: 750px;
+  background: rgba(247, 247, 247, 0.15);
+
+  img {
+    width: 700px;
+    height: 350px;
+  }
+}
+
+.buttons {
+  button {
+    margin: 10px;
+  }
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
+}

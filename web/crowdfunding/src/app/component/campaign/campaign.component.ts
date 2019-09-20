@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Campaign} from "../../dto/Campaign";
 import {CampaignService} from "../../service/campaign.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {MeProviderService} from "../../service/me-provider.service";
 
 @Component({
   selector: 'app-campaign',
@@ -12,8 +13,10 @@ export class CampaignComponent implements OnInit {
   campaign: Campaign = new Campaign();
 
   constructor(
+    private meProviderService: MeProviderService,
     private campaignService: CampaignService,
     private route: ActivatedRoute,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -23,6 +26,18 @@ export class CampaignComponent implements OnInit {
         this.campaignService.getCampaign(params['id'])
           .subscribe(
             campaign => this.campaign = campaign
+          );
+      }
+    )
+  }
+
+  deleteCampaign() {
+    this.route.params.subscribe(
+      params => {
+        console.log('params', params);
+        this.campaignService.deleteCampaign(this.meProviderService.getUserToken(), params['id'])
+          .subscribe(
+            () => this.router.navigateByUrl('campaign/all')
           );
       }
     )

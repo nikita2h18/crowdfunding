@@ -28,5 +28,19 @@ export class CampaignService {
     return this.http.get<Campaign>(API_URL + 'campaign/' + id);
   }
 
+  public updateCampaign(token: string, id: bigint): Observable<void> {
+    return this.http.delete<void>(API_URL + 'campaign/' + id, {
+      headers: {
+        token
+      }
+    })
+  }
 
+  public deleteCampaign(token: string, id: bigint): Observable<void> {
+    return this.http.delete<void>(API_URL + 'campaign/' + id, {
+      headers: {
+        token
+      }
+    })
+  }
 }

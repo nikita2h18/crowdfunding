@@ -30,7 +30,7 @@ export class AuthComponent implements OnInit {
   auth() {
     this.authService.auth(this.authUser).subscribe(user => {
       this.meProviderService.setUser(user);
-      this.router.navigate(['/main'], {replaceUrl: true});
+      this.router.navigate(['/campaign/all'], {replaceUrl: true});
     });
   }
 
