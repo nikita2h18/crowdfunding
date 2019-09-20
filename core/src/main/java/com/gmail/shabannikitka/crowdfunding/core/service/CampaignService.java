@@ -117,4 +117,22 @@ public class CampaignService {
 
         campaignRepository.delete(campaign);
     }
+
+    public CampaignDto getCampaign(Long id) throws NoSuchEntityException {
+        return campaignRepository.findById(id)
+                .map(
+                        campaign -> new CampaignDto(
+                                campaign.getId(),
+                                campaign.getName(),
+                                campaign.getSummary(),
+                                campaign.getTarget(),
+                                campaign.getUser().getId(),
+                                campaign.getFrom(),
+                                campaign.getUser().getLogin(),
+                                campaign.getTo(),
+                                campaign.getImagePath()
+                        )
+                )
+                .orElseThrow(() -> new NoSuchEntityException("Campaign not found"));
+    }
 }

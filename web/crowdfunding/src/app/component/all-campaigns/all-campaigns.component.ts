@@ -24,8 +24,4 @@ export class AllCampaignsComponent implements OnInit {
         }
       );
   }
-
-  navigate() {
-    this.router.navigateByUrl("/campaign");
-  }
 }

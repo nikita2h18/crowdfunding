@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="onload" *ngIf="campaigns">
   <div *ngFor="let campaign of campaigns">
-    <mat-card class="campaign-card" (click)="navigate()">
+      <mat-card class="campaign-card" [routerLink]="'/campaign/' + campaign.id">
       <mat-card-header>
         <mat-card-title>
           {{campaign.name}}

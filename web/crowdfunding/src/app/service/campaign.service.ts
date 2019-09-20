@@ -15,12 +15,18 @@ export class CampaignService {
   ) { }
 
   public getAll = (): Observable<Campaign[]> =>
-    this.http.get<Campaign[]>(API_URL + 'campaign/all')
+    this.http.get<Campaign[]>(API_URL + 'campaign/all');
 
   public getUserCampaigns = (token: string): Observable<Campaign[]> =>
     this.http.get<Campaign[]>(API_URL + 'campaign/all', {
       headers: {
         token
       }
-    })
+    });
+
+  public getCampaign(id: bigint): Observable<Campaign> {
+    return this.http.get<Campaign>(API_URL + 'campaign/' + id);
+  }
+
+
 }

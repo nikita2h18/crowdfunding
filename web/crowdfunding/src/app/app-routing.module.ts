@@ -46,7 +46,7 @@ const routes: Routes = [
     component: UserCampaignsComponent,
   },
   {
-    path: 'campaign',
+    path: 'campaign/:id',
     component: CampaignComponent,
   },
 ];

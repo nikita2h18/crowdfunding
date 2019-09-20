@@ -39,6 +39,11 @@ public class CampaignController {
         return campaignService.showAllCampaigns();
     }
 
+    @GetMapping(path = "/{id}")
+    public CampaignDto getCampaign(@PathVariable("id") Long id) throws NoSuchEntityException {
+        return campaignService.getCampaign(id);
+    }
+
     @GetMapping("/user")
     public List<CampaignDto> showUserCampaigns(@RequestHeader("token") String token) throws NoSuchEntityException {
         return campaignService.showUserCampaigns(tokenService.validate(token));
@@ -49,8 +54,8 @@ public class CampaignController {
         campaignService.updateCampaign(updateCampaignDto, tokenService.validate(token));
     }
 
-    @DeleteMapping("/delete")
-    public void deleteCampaign(@RequestHeader("token") String token, @RequestBody Long id) throws NoSuchEntityException, NoAccessRightsException {
+    @DeleteMapping(path = "/{id}")
+    public void deleteCampaign(@RequestHeader("token") String token, @PathVariable("id") Long id) throws NoSuchEntityException, NoAccessRightsException {
         campaignService.deleteCampaign(id, tokenService.validate(token));
     }
 }
