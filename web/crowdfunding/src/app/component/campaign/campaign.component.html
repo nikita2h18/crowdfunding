@@ -12,11 +12,14 @@
     <div>Target: {{campaign.target}} , to {{campaign.to}}</div>
   </div>
   <div class="buttons">
-    <button type="submit" mat-raised-button color="primary">
+    <button type="submit" mat-raised-button color="primary" (click)="updateCampaign()">
       <img src="../../../assets/pen-15.png" height="512" width="512" alt="update"/>
     </button>
     <button type="submit" mat-raised-button color="primary" (click)="deleteCampaign()">
       <img src="../../../assets/close-circle-red-512.png" height="512" width="512" alt="remove"/>
     </button>
   </div>
+</div>
+<div class="comments">
+  <app-comment></app-comment>
 </div>

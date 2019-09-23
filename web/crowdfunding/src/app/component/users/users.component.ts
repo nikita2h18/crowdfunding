@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../dto/User';
-import { Router } from '@angular/router';
-import { UserService } from '../../service/user.service';
-import { AdminService } from '../../service/admin.service';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../../dto/User';
+import {Router} from '@angular/router';
+import {UserService} from '../../service/user.service';
+import {AdminService} from '../../service/admin.service';
 
 @Component({
   selector: 'app-users',
@@ -17,25 +17,17 @@ export class UsersComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private adminService: AdminService,
-  ) { }
+  ) {
+  }
 
-  // TODO: locked, unlocked
   public ngOnInit(): void {
     this.userService
       .getAll(localStorage.getItem('token'))
       .subscribe(
-        (users: User[]): User[] => {
-          for (const user of users) {
-            if (user.blocked === 'true') {
-              user.blocked = 'locked';
-            } else {
-              user.blocked = 'unlocked';
-            }
-          }
-          return this.users = users;
-        }
-      ,
-      () => {
+        (users: User[]): User[] => (
+          this.users = users
+        ),
+        () => {
           console.log('error`');
         }
       );

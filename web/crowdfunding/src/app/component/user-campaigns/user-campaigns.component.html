@@ -1,2 +1,25 @@
 <app-header></app-header>
-eeeeeeeeeeeeeee
+<div class="onload" *ngIf="campaigns">
+  <div *ngFor="let campaign of campaigns">
+    <mat-card class="campaign-card" [routerLink]="'/campaign/' + campaign.id">
+      <mat-card-header>
+        <mat-card-title>
+          {{campaign.name}}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{campaign.userName}}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{campaign.imagePath}}">
+      <mat-card-content>
+        <p>Target</p>
+        <p>
+          {{campaign.target}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

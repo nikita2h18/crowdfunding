@@ -18,7 +18,7 @@ export class CampaignService {
     this.http.get<Campaign[]>(API_URL + 'campaign/all');
 
   public getUserCampaigns = (token: string): Observable<Campaign[]> =>
-    this.http.get<Campaign[]>(API_URL + 'campaign/all', {
+    this.http.get<Campaign[]>(API_URL + 'campaign/user', {
       headers: {
         token
       }

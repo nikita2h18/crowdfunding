@@ -1,0 +1,11 @@
+.root {
+  margin: 10px;
+}
+
+.sender {
+  display: flex;
+  flex-direction: column;
+  button {
+    width: 200px;
+  }
+}

@@ -9,7 +9,8 @@
     and in searches.
   </p>
   <mat-form-field class="campaign-title">
-    <input matInput placeholder="Campaign Title *" value="What is the title of your campaign?" [(ngModel)]="createCampaign.name">
+    <input matInput placeholder="Campaign Title *" value="What is the title of your campaign?"
+           [(ngModel)]="createCampaign.name">
   </mat-form-field>
   <mat-form-field>
     <textarea matInput placeholder="Campaign Tagline *" [(ngModel)]="createCampaign.summary"></textarea>
@@ -18,7 +19,12 @@
     <label>Campaign Card Image *</label>
   </div>
   <input type="file" (change)="onChange($event)"/>
-  <input type="text" placeholder="target" [(ngModel)]="createCampaign.target">
-  <input type="date" [(ngModel)]="createCampaign.to">
-  <button type="submit" (click)="create()">create</button>
+
+  <mat-form-field>
+    <input matInput placeholder="Target *" type="text" placeholder="target" [(ngModel)]="createCampaign.target">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="date" [(ngModel)]="createCampaign.to">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" (click)="create()">create</button>
 </div>

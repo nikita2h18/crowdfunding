@@ -1,0 +1,14 @@
+<div class="root">
+  <h2>Comments</h2>
+  <div *ngIf="comments">
+    <div *ngFor="let message of comments">
+      <div>{{message.comment}}</div>
+    </div>
+  </div>
+  <div class="sender" *ngIf="meProviderService.getUserToken()">
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="comment">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" (click)="sendComment()">comment</button>
+  </div>
+</div>

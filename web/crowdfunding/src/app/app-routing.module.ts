@@ -9,6 +9,7 @@ import {NgModule} from '@angular/core';
 import {AllCampaignsComponent} from "./component/all-campaigns/all-campaigns.component";
 import {UserCampaignsComponent} from "./component/user-campaigns/user-campaigns.component";
 import {CampaignComponent} from "./component/campaign/campaign.component";
+import {UpdateCampaignComponent} from "./component/update-campaign/update-campaign.component";
 
 
 const routes: Routes = [
@@ -48,6 +49,10 @@ const routes: Routes = [
   {
     path: 'campaign/:id',
     component: CampaignComponent,
+  },
+  {
+    path: 'campaign/update/:id',
+    component: UpdateCampaignComponent,
   },
 ];
 

@@ -1,0 +1,17 @@
+.campaign-card {
+  margin: 35px 10px 0 35px;
+  width: 350px;
+  img {
+    height: 200px;
+  }
+}
+
+.campaign-card:hover {
+  cursor: pointer;
+}
+
+.onload {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

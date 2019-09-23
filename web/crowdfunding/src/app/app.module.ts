@@ -18,6 +18,8 @@ import { UsersComponent } from './component/users/users.component';
 import { AllCampaignsComponent } from './component/all-campaigns/all-campaigns.component';
 import { UserCampaignsComponent } from './component/user-campaigns/user-campaigns.component';
 import { CampaignComponent } from './component/campaign/campaign.component';
+import { UpdateCampaignComponent } from './component/update-campaign/update-campaign.component';
+import { CommentComponent } from './component/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { CampaignComponent } from './component/campaign/campaign.component';
     AllCampaignsComponent,
     UserCampaignsComponent,
     CampaignComponent,
+    UpdateCampaignComponent,
+    CommentComponent,
   ],
   imports: [
     HttpClientModule,

@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
       .subscribe(
         () => {
           this.meProvider.setUnauthorized();
-          this.router.navigateByUrl('/main');
+          this.router.navigateByUrl('/campaign/all');
         },
         error => {
           this.meProvider.setUnauthorized();

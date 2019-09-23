@@ -3,6 +3,7 @@ import {Campaign} from "../../dto/Campaign";
 import {CampaignService} from "../../service/campaign.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {MeProviderService} from "../../service/me-provider.service";
+import {CommentComponent} from "../comment/comment.component";
 
 @Component({
   selector: 'app-campaign',
@@ -17,7 +18,7 @@ export class CampaignComponent implements OnInit {
     private campaignService: CampaignService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -41,5 +42,9 @@ export class CampaignComponent implements OnInit {
           );
       }
     )
+  }
+
+  updateCampaign() {
+    this.router.navigateByUrl('campaign/update/' + this.campaign.id);
   }
 }

@@ -1,0 +1,23 @@
+<div class="header">
+  <app-header></app-header>
+</div>
+<div class="root">
+  <mat-form-field class="campaign-title">
+    <input matInput placeholder="Campaign Title *" value="What is the title of your campaign?"
+           [(ngModel)]="updateCampaign.name">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Campaign Tagline *" [(ngModel)]="updateCampaign.summary"></textarea>
+  </mat-form-field>
+  <div class="card-image">
+    <label>Campaign Card Image *</label>
+  </div>
+  <input type="file" (change)="onChange($event)"/>
+  <mat-form-field>
+    <input matInput type="text" placeholder="target" [(ngModel)]="updateCampaign.target">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="date" [(ngModel)]="updateCampaign.to">
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" (click)="update()">create</button>
+</div>

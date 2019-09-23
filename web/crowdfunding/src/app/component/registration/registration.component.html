@@ -27,6 +27,10 @@
         </label>
         <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
+      <div class="auth-hint">
+        <div class="text">Already registered?</div>
+        <a [routerLink]="'/auth'">Log in</a>
+      </div>
       <button type="submit" mat-raised-button color="primary"
               [disabled]="registerUser.login == null || password.invalid">
         Submit

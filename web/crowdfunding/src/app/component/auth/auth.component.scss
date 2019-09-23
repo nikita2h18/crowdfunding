@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: rgba(0,0,0,0.05)
+  background-color: rgba(0, 0, 0, 0.05)
 }
 
 .form {
@@ -23,4 +23,39 @@
   background-color: white;
   border-radius: 4px;
   padding: 30px;
+}
+
+.auth-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .text {
+    margin: 0 5px;
+
+    color: white;
+    font-size: 20px;
+  }
+
+  a {
+    color: white;
+    font-size: 20px;
+    text-decoration-line: underline;
+  }
+
+  .register-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .text {
+      margin: 0 5px;
+      font-size: 20px;
+    }
+
+    a {
+      font-size: 20px;
+      text-decoration-line: underline;
+    }
+  }
 }

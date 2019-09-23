@@ -25,51 +25,42 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @GetMapping
-    @RequestMapping("users")
+    @GetMapping("users")
     public List<UserDto> getAllUsers(@RequestHeader("token") String token) throws NoSuchEntityException {
-        User user = tokenService.validate(token);
+        tokenService.validate(token);
         return adminService.getAllUsers();
     }
 
-    @PostMapping
-    @RequestMapping("block")
+    @PostMapping("block")
     public void block(@RequestHeader("token") String token, @RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
-        User user = tokenService.validate(token);
-        if (user.getRole() == Role.ADMIN) {
+        if (tokenService.validate(token).getRole() == Role.ADMIN) {
             adminService.block(userIds);
         } else {
             throw new NoPermissionException("Access denied");
         }
     }
 
-    @PostMapping
-    @RequestMapping("unblock")
+    @PostMapping("unblock")
     public void unblock(@RequestHeader("token") String token, @RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
-        User user = tokenService.validate(token);
-        if (user.getRole() == Role.ADMIN) {
+        if (tokenService.validate(token).getRole() == Role.ADMIN) {
             adminService.unblock(userIds);
         } else {
             throw new NoPermissionException("Access denied");
         }
     }
 
-    @PostMapping
-    @RequestMapping("setAdmin")
+    @PostMapping("setadmin")
     public void setAdminRole(@RequestHeader("token") String token, @RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
-        User user = tokenService.validate(token);
-        if (user.getRole() == Role.ADMIN) {
+        if (tokenService.validate(token).getRole() == Role.ADMIN) {
             adminService.setAdminRole(userIds);
         } else {
             throw new NoPermissionException("Access denied");
         }
     }
 
-    @PostMapping
-    @RequestMapping("setdefault")
+    @PostMapping("setdefault")
     public void setDefaultRole(@RequestHeader("token") String token, @RequestBody List<Long> userIds) throws NoSuchEntityException, NoPermissionException {
-        User user = tokenService.validate(token);
-        if (user.getRole() == Role.ADMIN) {
+        if (tokenService.validate(token).getRole() == Role.ADMIN) {
             adminService.setDefaultRole(userIds);
         } else {
             throw new NoPermissionException("Access denied");

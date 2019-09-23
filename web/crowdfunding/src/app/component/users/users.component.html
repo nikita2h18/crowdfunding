@@ -14,10 +14,10 @@
       {{user.login}}
     </th>
     <th>
-      {{user.role}}
+      {{user.role === 'ADMIN' ? 'Admin' : 'Default User'}}
     </th>
     <th>
-      {{user.blocked}}
+      {{user.isBlocked ? 'Blocked' : 'Unblocked'}}
     </th>
   </tr>
 </table>
